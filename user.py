@@ -1,10 +1,15 @@
 import pandas as pd
 from supabase import create_client, Client
 from datetime import datetime
+import os
+from dotenv import load_dotenv
 
-# Supabase URL and Service Role Key (replace with your actual credentials)
-url = 'https://djtgxkgeaphckljxgcck.supabase.co'
-key = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRqdGd4a2dlYXBoY2tsanhnY2NrIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcyMDQyMzUyOSwiZXhwIjoyMDM1OTk5NTI5fQ.VCBfpN8aZGcZu_Yp_e66VDMvuWQgAm6Ki1V1tXNpW1M'
+# Load environment variables
+load_dotenv()
+
+# Get credentials from environment variables
+url = os.getenv('SUPABASE_URL')
+key = os.getenv('SUPABASE_KEY')
 
 supabase: Client = create_client(url, key)
 
